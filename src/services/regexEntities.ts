@@ -7,7 +7,7 @@ interface PatternDef {
 
 const BUILT_IN_PATTERNS: PatternDef[] = [
   { type: 'Email', pattern: /[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}/g },
-  { type: 'Phone', pattern: /(?:\+?1[-.\s]?)?(?:\(?\d{3}\)?[-.\s]?)?\d{3}[-.\s]?\d{4}/g },
+  { type: 'Phone', pattern: /(?<!\d)(?:\+?1[-.\s])?(?:\(\d{3}\)[-.\s]?\d{3}[-.\s]?\d{4}|\d{3}[-.\s]\d{3}[-.\s]\d{4})(?!\d)/g },
   { type: 'URL', pattern: /https?:\/\/[^\s<>"{}|\\^`[\]]+/g },
   { type: 'Date', pattern: /\b(?:\d{1,2}[/\-.]\d{1,2}[/\-.]\d{2,4}|\d{4}[/\-.]\d{1,2}[/\-.]\d{1,2}|(?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)[a-z]*\.?\s+\d{1,2},?\s+\d{4}|\d{1,2}\s+(?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)[a-z]*\.?\s+\d{4})\b/gi },
   { type: 'Money', pattern: /[$€£¥]\s?\d{1,3}(?:[,.\s]\d{3})*(?:\.\d{1,2})?|\d{1,3}(?:[,.\s]\d{3})*(?:\.\d{1,2})?\s?(?:USD|EUR|GBP|JPY|INR)\b/g },

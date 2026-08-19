@@ -14,11 +14,20 @@ describe('extractRegexEntities', () => {
     expect(emails[0].confidence).toBe(1.0);
   });
 
-  it('extracts phone numbers', () => {
+  it('extracts formatted phone numbers', () => {
     const text = 'Call 555-123-4567 or (555) 987-6543';
     const entities = extractRegexEntities(text, ALL_TYPES, []);
     const phones = entities.filter((e) => e.type === 'Phone');
-    expect(phones.length).toBeGreaterThanOrEqual(1);
+    expect(phones).toHaveLength(2);
+    expect(phones[0].text).toBe('555-123-4567');
+    expect(phones[1].text).toBe('(555) 987-6543');
+  });
+
+  it('does not match bare digit sequences as phone', () => {
+    const text = 'Order 1234567 and code 9876543 and total 12345678';
+    const entities = extractRegexEntities(text, ALL_TYPES, []);
+    const phones = entities.filter((e) => e.type === 'Phone');
+    expect(phones).toHaveLength(0);
   });
 
   it('extracts URLs', () => {
