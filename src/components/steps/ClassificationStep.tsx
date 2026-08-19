@@ -190,11 +190,11 @@ export default function ClassificationStep({ extractedText }: ClassificationStep
 
         {/* Error */}
         {status === 'error' && error && (
-          <div className="px-3 py-2 rounded-lg bg-danger/10 border border-danger/20 text-danger text-[11px] flex items-center justify-between">
+          <div className="px-3 py-2 rounded-lg bg-error/10 border border-error/20 text-error text-[11px] flex items-center justify-between">
             <span>Classification failed: {error}</span>
             <button
               onClick={handleRetry}
-              className="ml-3 px-2 py-0.5 rounded text-[10px] font-medium border border-danger/30 hover:bg-danger/10 cursor-pointer"
+              className="ml-3 px-2 py-0.5 rounded text-[10px] font-medium border border-error/30 hover:bg-error/10 cursor-pointer"
             >
               Retry
             </button>

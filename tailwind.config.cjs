@@ -1,6 +1,11 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
+  safelist: [
+    // ErrorBanner dynamic severity classes
+    { pattern: /^(bg|border|text|hover:bg|hover:text)-(error|warning)\/(10|15|20|30|50)$/ },
+    { pattern: /^text-(error|warning)$/ },
+  ],
   theme: {
     extend: {
       colors: {

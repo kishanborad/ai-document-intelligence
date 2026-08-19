@@ -1,4 +1,5 @@
 import { DocStoreProvider } from './store/DocStoreContext';
+import ErrorBoundary from './components/shared/ErrorBoundary';
 import WizardShell from './components/shell/WizardShell';
 
 export default function App() {
@@ -24,7 +25,9 @@ export default function App() {
 
         {/* Wizard */}
         <main className="flex-1 overflow-hidden">
-          <WizardShell />
+          <ErrorBoundary>
+            <WizardShell />
+          </ErrorBoundary>
         </main>
       </div>
     </DocStoreProvider>

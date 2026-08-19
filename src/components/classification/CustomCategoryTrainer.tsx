@@ -134,7 +134,7 @@ export default function CustomCategoryTrainer({
                   <button
                     onClick={() => removeCategory(cat.id)}
                     disabled={disabled}
-                    className="text-[10px] text-danger hover:underline cursor-pointer disabled:cursor-not-allowed"
+                    className="text-[10px] text-error hover:underline cursor-pointer disabled:cursor-not-allowed"
                   >
                     Remove
                   </button>
@@ -150,7 +150,7 @@ export default function CustomCategoryTrainer({
                       <button
                         onClick={() => removeExample(cat.id, i)}
                         disabled={disabled}
-                        className="text-danger/60 hover:text-danger text-[10px] shrink-0 cursor-pointer"
+                        className="text-error/60 hover:text-error text-[10px] shrink-0 cursor-pointer"
                       >
                         x
                       </button>
